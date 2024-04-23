@@ -1,0 +1,13 @@
+mint factorial(int n) {
+	constexpr int MAX_SIZE = 10000001;
+	static mint fact[MAX_SIZE];
+	static bool initialized = false;
+	if (!initialized) {
+		initialized = true;
+		fact[0] = 1;
+		for (int i = 1;i < MAX_SIZE;i++) {
+			fact[i] = fact[i - 1] * i;
+		}
+	}
+	return fact[n];
+}

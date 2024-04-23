@@ -1,0 +1,43 @@
+template<typename T>
+struct matrix {
+	int h, w;
+	vector<vector<T>>dat;
+	matrix() {}
+	matrix(int h, int w, bool identity = false) :h(h), w(w), dat(h, vector<T>(w, T())) {
+		if (identity) for (int i = 0;i < h;i++) dat[i][i] = 1;
+	}
+	matrix<T> operator+(matrix<T>& a) const {
+		matrix<T> b(h, w);
+		for (int i = 0;i < h;i++)for (int j = 0;j < w;j++) {
+			b[i][j] = dat[i][j] + a[i][j];
+		}
+		return b;
+	}
+	matrix<T> operator-(matrix<T>& a) const {
+		matrix<T> b(h, w);
+		for (int i = 0;i < h;i++)for (int j = 0;j < w;j++) {
+			b[i][j] = dat[i][j] - a[i][j];
+		}
+		return b;
+	}
+	matrix<T> operator*(matrix<T>& a) const {
+		matrix<T> b(h, a.w);
+		for (int i = 0;i < h;i++)for (int j = 0;j < a.w;j++)
+			for (int k = 0;k < w;k++) {
+				b[i][j] += dat[i][k] * a.dat[k][j];
+			}
+		return b;
+	}
+	matrix<T>pow(long long t) {
+		matrix<T>b = *this, c(h, w, true);
+		while (t > 0) {
+			if (t & 1) c = c * b;
+			b = b * b;
+			t >>= 1;
+		}
+		return c;
+	}
+	vector<T>& operator[](const int i) {
+		return dat[i];
+	}
+};

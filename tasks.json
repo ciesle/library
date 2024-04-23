@@ -1,0 +1,186 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "./.vscode/opt_build.sh ${fileBasename}",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "group": "others",
+                "showReuseMessage": false,
+                "clear": true,
+            }
+        },
+        {
+            "label": "build_main",
+            "type": "shell",
+            "command": "./.vscode/opt_build.sh main",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "group": "others",
+                "showReuseMessage": false,
+                "clear": true,
+            }
+        },
+        {
+            "label": "dbg_build",
+            "type": "shell",
+            "command": "./.vscode/dbg_build.sh",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "group": "others",
+                "showReuseMessage": false,
+                "clear": true,
+            }
+        },
+        {
+            "label": "dbg_build_exit",
+            "type": "shell",
+            "command": "./.vscode/dbg_build.sh",
+            "hide": true,
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "close": true
+            }
+        },
+        {
+            "label": "run_with_input",
+            "type": "shell",
+            "command": "./main",
+            "args": [
+                "<",
+                "${input:input_filename}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": [
+                "build",
+            ],
+            "dependsOrder": "sequence",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false,
+                "group": "run",
+            }
+        },
+        {
+            "label": "run_main",
+            "type": "shell",
+            "command": "./main",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": [
+                "build_main",
+            ],
+            "dependsOrder": "sequence",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false,
+                "group": "run",
+            }
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "./${fileBasenameNoExtension}",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": [
+                "build",
+            ],
+            "dependsOrder": "sequence",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false,
+                "group": "run",
+            }
+        },
+        {
+            "label": "random_check",
+            "type": "shell",
+            "command": "./.vscode/randcheck.sh",
+            "group": "test",
+            "args": [
+                "${input:input_args}",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "group": "others",
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true,
+            }
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "make clean",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "echo": false,
+                "reveal": "never",
+                "focus": false,
+                "panel": "new",
+                "group": "others",
+                "close": true,
+            }
+        },
+    ],
+    "inputs": [
+        {
+            "id": "input_filename",
+            "description": "input file name",
+            "default": "in.txt",
+            "type": "promptString"
+        },
+        {
+            "id": "input_args",
+            "description": "-n (testcase number(default=100)) (arg1) (arg2) .....",
+            "default": "",
+            "type": "promptString"
+        },
+    ]
+}

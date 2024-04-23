@@ -1,0 +1,42 @@
+template<typename T>
+class sparse_table {
+	using F = function<bool(T, T)>;
+	int n, rr, height;
+	vector<int>log;
+	vector<vector<T>>table;
+	F f;
+	T zero;
+public:
+	sparse_table() {}
+	sparse_table(int n) :n(n) {}
+	//data, compare function.
+	//単位元は自動的にセットされる
+	sparse_table(vector<T>a, F compare) :n(a.size()), f(compare), log(n + 1) {
+		rr = 1, height = 1;
+		if (compare(numeric_limits<T>::min(), numeric_limits<T>::max())) zero = numeric_limits<T>::max();
+		else zero = numeric_limits<T>::min();
+		while (rr * 2 <= n) rr <<= 1, height++;
+		for (int i = 0;i <= height;i++) {
+			for (int j = (1 << i);j <= n && j < (1 << (i + 1));j++) {
+				log[j] = i;
+			}
+		}
+		table.assign(height, vector<T>(n));
+		for (int i = 0;i < n;i++) table[0][i] = a[i];
+		for (int i = 0;i < height - 1;i++) {
+			for (int j = 0;j + (1 << (i + 1)) <= n;j++) {
+				if (f(table[i][j], table[i][j + (1 << i)])) table[i + 1][j] = table[i][j];
+				else table[i + 1][j] = table[i][j + (1 << i)];
+			}
+		}
+	}
+	T a(int l, int r) {
+		return b(l, r + 1);
+	}
+	T b(int l, int r) {
+		if (r <= l) return zero;
+		int h = log[r - l];
+		if (f(table[h][l], table[h][r - (1 << h)])) return table[h][l];
+		return table[h][r - (1 << h)];
+	}
+};

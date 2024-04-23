@@ -1,0 +1,6 @@
+template<typename T>
+vector<T> inverse_transform(vector<T>a) {
+	vector<T>ret(*max_element(a.begin(), a.end()) + 1, -1);
+	for (int i = 0;i < a.size();i++) ret[a[i]] = i;
+	return ret;
+}

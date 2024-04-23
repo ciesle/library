@@ -1,0 +1,6 @@
+struct edge{
+    int x,y;
+    long long cst;
+    bool operator<(const edge& a)const{return cst<a.cst;}
+    bool operator>(const edge& a)const{return cst>a.cst;}
+};

@@ -1,0 +1,6 @@
+int msb(ll t) {
+	for (int i = 63;i >= 0;i--) {
+		if ((t >> i) & 1) return i;
+	}
+	return -1;
+}

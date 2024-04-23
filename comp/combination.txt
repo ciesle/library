@@ -1,0 +1,19 @@
+mint combination(int n, int k) {
+	constexpr int MAX_SIZE = 10000001;
+	static mint fact[MAX_SIZE];
+	static mint inv[MAX_SIZE];
+	static bool initialized = false;
+	if (!initialized) {
+		initialized = true;
+		fact[0] = 1;
+		for (int i = 1;i < MAX_SIZE;i++) {
+			fact[i] = fact[i - 1] * i;
+		}
+		inv[MAX_SIZE - 1] = mint(1) / fact[MAX_SIZE - 1];
+		for (int i = MAX_SIZE - 2;i >= 0;i--) {
+			inv[i] = inv[i + 1] * (i + 1);
+		}
+	}
+	if (k > n) return 0;
+	return fact[n] * inv[k] * inv[n - k];
+}
