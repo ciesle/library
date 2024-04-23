@@ -1,0 +1,62 @@
+[
+    {
+        "key": "ctrl+shift+t",
+        "command": "workbench.action.tasks.test"
+    },
+    {
+        "key": "ctrl+f6",
+        "command": "workbench.action.tasks.runTask",
+        "args": "run_with_input"
+    },
+    {
+        "key": "ctrl+f5",
+        "command": "workbench.action.tasks.runTask",
+        "args": "run_main"
+    },
+    {
+        "key": "ctrl+alt+c",
+        "command": "workbench.action.tasks.runTask",
+        "args": "clean"
+    },
+    {
+        "key": "ctrl+f7",
+        "command": "workbench.action.tasks.runTask",
+        "args": "run"
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "editor.action.blockComment"
+    },
+    {
+        "key": "ctrl+shift+1",
+        "command": "editor.foldLevel1",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+2",
+        "command": "editor.foldLevel2",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+3",
+        "command": "editor.foldLevel3",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+4",
+        "command": "editor.foldLevel4",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+m",
+        "command": "editor.action.jumpToBracket"
+    },
+    {
+        "key": "ctrl+shift+s",
+        "command": "workbench.action.files.saveAll"
+    },
+    {
+        "key": "ctrl+alt+s",
+        "command": "workbench.action.files.saveAs"
+    }
+]
