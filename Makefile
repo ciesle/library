@@ -3,7 +3,7 @@ CFLAGS_OPT = -std=c++20 -O2
 CFLAGS_DBG = -std=c++20 -O0 -g
 OUT_DIR = ./.vscode/auto_build
 
-LIBRARIES:=$(filter-out ./library/add.sh,$(wildcard ./library/*))
+LIBRARIES:=$(filter-out ./library/add.sh,$(shell find ./library/ -type f))
 include ../library/snip_path.env
 SNIP_PATH=$(snip_path)
 ADD_SH=./library/add.sh

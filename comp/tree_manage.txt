@@ -8,12 +8,12 @@ public:
 	tree_manage() {}
 	tree_manage(int n, int root = 0) :n(n), root(root) {
 		e.resize(n), dpt.resize(n);
-		log = 0;while ((1 << log) < n) log++;
+		log = 0;while ((1 << log) <= n) log++;
 		pa.assign(log, vector<int>(n, -1));
 	}
 	tree_manage(int n, vector<vector<int>>& e, int root = 0) :n(n), e(e), root(root) {
 		dpt.resize(n);
-		log = 0;while ((1 << log) < n) log++;
+		log = 0;while ((1 << log) <= n) log++;
 		pa.assign(log, vector<int>(n, -1));
 		build();
 	}
@@ -44,6 +44,9 @@ public:
 			if (pa[i][x] != pa[i][y]) x = pa[i][x], y = pa[i][y];
 		}
 		return pa[0][x];
+	}
+	int dept(int x) {
+		return dpt[x];
 	}
 	int dist(int x, int y) {
 		int k = lca(x, y);

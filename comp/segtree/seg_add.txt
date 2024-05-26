@@ -5,7 +5,7 @@ protected:
 		pos.val += x;
 		pos.lazy += x;
 	}
-	void fold(Mono<T>& pos) { pos.lazy = 0; }
+	void fold(Mono<T>& pos) { pos.lazy = Mono<T>().lazy; }
 	void propagate(Mono<T>& par, Mono<T>& child) {
 		child.val += par.lazy;
 		child.lazy += par.lazy;

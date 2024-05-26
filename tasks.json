@@ -5,6 +5,10 @@
             "label": "build",
             "type": "shell",
             "command": "./.vscode/opt_build.sh ${fileBasename}",
+            "group": {
+                "kind":"build",
+                "isDefault": true                
+            },
             "options": {
                 "cwd": "${workspaceFolder}"
             },
@@ -22,6 +26,7 @@
             "label": "build_main",
             "type": "shell",
             "command": "./.vscode/opt_build.sh main",
+            "group": "build",
             "options": {
                 "cwd": "${workspaceFolder}"
             },
@@ -39,6 +44,7 @@
             "label": "dbg_build",
             "type": "shell",
             "command": "./.vscode/dbg_build.sh",
+            "group": "build",
             "options": {
                 "cwd": "${workspaceFolder}"
             },
@@ -135,7 +141,10 @@
             "label": "random_check",
             "type": "shell",
             "command": "./.vscode/randcheck.sh",
-            "group": "test",
+            "group": {
+                "kind":"test",
+                "isDefault": true                
+            },
             "args": [
                 "${input:input_args}",
             ],

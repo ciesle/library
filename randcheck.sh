@@ -7,7 +7,7 @@ input_path="rnd_in.txt"
 output_main_path="rnd_outm.txt"
 output_brute_path="rnd_outb.txt"
 
-echo -e "\e[35;1mrandom check\e[m"-n 
+echo -e "\e[35;1mrandom check\e[m"
 
 function clean_up(){
     if [ $? -eq 0 ]; then
@@ -65,11 +65,11 @@ for ((i=0; i<${#option_list[@]}; i++)) ; do
 done
 
 for ((i = 1 ; i <= $num ; i++)) ; do
-    $out_path/${gen_path%%.cpp} $options > "$input_path"
+    ${out_path}/${gen_path%%.cpp} $options > "$input_path"
     fail_output $? "generate"
-    $out_path/${main_path%%.cpp} < "$input_path" > "$output_main_path"
+    ${out_path}/${main_path%%.cpp} < "$input_path" > "$output_main_path"
     fail_output $? "${main_path%%.cpp} run"
-    $out_path/${brute_path%%.cpp} < "$input_path" > "$output_brute_path"
+    ${out_path}/${brute_path%%.cpp} < "$input_path" > "$output_brute_path"
     fail_output $? "${brute_path%%.cpp} run"
     if [ "$(cat $output_main_path)" != "$(cat $output_brute_path)" ] ; then
         printf "check \e[31;1mfailed\e[m\n" 1>&2

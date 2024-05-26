@@ -25,7 +25,8 @@
         "span": "cpp",
         "regex": "cpp",
         "valarray": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "tuple": "cpp"
     },
     "cmake.configureOnOpen": false,
 }
