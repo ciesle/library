@@ -28,7 +28,7 @@ main_dbg: $(OUT_DIR)/main_dbg
 
 .PHONY: clean
 clean:
-	@rm -f main brute gen main_dbg rnd*
+	@rm -f main brute gen main_dbg a.out test rnd*
 
 .PHONY: gdb_clean
 gdb_clean:
