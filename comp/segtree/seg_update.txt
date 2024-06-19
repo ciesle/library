@@ -1,5 +1,5 @@
 	template<typename T>
-	class Upadte : virtual public LazySegmentTree<T> {
+	class Update : virtual public LazySegmentTree<T> {
 	protected:
 		void update_one(Mono<T>& pos, T& x) {
 			pos.val = x * pos.len;
