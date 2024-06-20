@@ -11,7 +11,8 @@ mkdir -p ../$1/.vscode/auto_build
 {
 	name=$(cd $(dirname $0) && pwd)
 	name=${name##*/}
-	$(cd ../$1 && ln -s ../$name/comp library)
+	$(cd ../$1 && ln -s ../$name/comp/ library/)
+	rm -f ../$1/library/comp
 }
 
 files=("gdb_exit.sh" "launch.json" "randcheck.sh" "c_cpp_properties.json" "dbg_build.sh" "opt_build.sh" "settings.json" "tasks.json")
