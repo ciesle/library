@@ -5,19 +5,18 @@ if [ $# -ne 1 ];then
 	exit 1
 fi
 
-ln Makefile ../$1/Makefile
+name=$(cd $(dirname $0) && pwd)
+name=${name##*/}
+$(cd ../$1 && ln -s ../$name/Makefile)
 mkdir -p ../$1/.vscode/
 mkdir -p ../$1/.vscode/auto_build
-{
-	name=$(cd $(dirname $0) && pwd)
-	name=${name##*/}
-	$(cd ../$1 && ln -s ../$name/comp/ library/)
-	rm -f ../$1/library/comp
-}
+
+$(cd ../$1 && ln -s ../$name/comp/ library/)
+rm -f ../$1/library/comp
 
 files=("gdb_exit.sh" "launch.json" "randcheck.sh" "c_cpp_properties.json" "dbg_build.sh" "opt_build.sh" "settings.json" "tasks.json")
 for file in ${files[@]};do
-	ln $file ../$1/.vscode/$file
+	$(cd ../$1/.vscode && ln -s ../../$name/$file)
 done
 
 cat keybindings.json.bk > /mnt/c/Users/thistle/AppData/Roaming/Code/User/keybindings.json
