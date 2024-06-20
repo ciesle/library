@@ -6,7 +6,7 @@ OUT_DIR = ./.vscode/auto_build
 LIBRARIES:=$(filter-out ./library/add.sh,$(shell find ./library/ -type f))
 include ../library/snip_path.env
 SNIP_PATH=$(snip_path)
-ADD_SH=./library/add.sh
+ADD_SH=../library/add.sh
 
 $(OUT_DIR)/main: main.cpp
 	$(CC) $(CFLAGS_OPT) -o $@ $^ 
