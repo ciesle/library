@@ -29,4 +29,11 @@
         "tuple": "cpp"
     },
     "cmake.configureOnOpen": false,
+    "[c,cpp]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.formatOnPaste": true,
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "r.lsp.promptToInstall": false
 }

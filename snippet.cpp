@@ -35,6 +35,7 @@ signed main(int argv, char* argc[]){
         }
         buf="\""+work+"\",";
     }
+    code.back().pop_back();
     cout<<"\t\""<<pref<<"\": {\n";
     cout<<"\t\t\"prefix\" : \""<<pref<<"\",\n";
     cout<<"\t\t\"body\": [\n";
@@ -42,6 +43,6 @@ signed main(int argv, char* argc[]){
         cout<<"\t\t\t"<<code[i]<<endl;
     }
     cout<<"\t\t],\n";
-    cout<<"\t\t\"description\": \""<<desc<<"\",\n";
+    cout<<"\t\t\"description\": \""<<desc<<"\"\n";
     cout<<"\t},\n";
 }

@@ -3,9 +3,8 @@ CFLAGS_OPT = -std=c++20 -O2
 CFLAGS_DBG = -std=c++20 -O0 -g
 OUT_DIR = ./.vscode/auto_build
 
-LIBRARIES:=$(filter-out ./library/add.sh,$(shell find ./library/ -type f))
-include ../library/snip_path.env
-SNIP_PATH=$(snip_path)
+LIBRARIES:=$(shell find ./library/ -type f)
+SNIP_PATH=./.vscode/comp.json
 ADD_SH=../library/add.sh
 
 $(OUT_DIR)/main: main.cpp
@@ -18,12 +17,16 @@ $(OUT_DIR)/main_dbg: main.cpp
 	$(CC) $(CFLAGS_DBG) -o $@ $^ 
 
 main: $(OUT_DIR)/main
+	@rm -f ./$@
 	@cp $^ ./
 brute: $(OUT_DIR)/brute
+	@rm -f ./$@
 	@cp $^ ./
 gen: $(OUT_DIR)/gen
+	@rm -f ./$@
 	@cp $^ ./
 main_dbg: $(OUT_DIR)/main_dbg
+	@rm -f ./$@
 	@cp $^ ./
 
 .PHONY: clean
@@ -39,3 +42,5 @@ gdb_clean:
 snippet:
 	@printf "{\n\t\n}" > $(SNIP_PATH)
 	@$(foreach file,$(LIBRARIES),$(ADD_SH) $(file);)
+	@sed -i -e :a -e '$$d;N;2,2ba' -e 'P;D' $(SNIP_PATH)
+	@echo "\t}\n}" >> $(SNIP_PATH)

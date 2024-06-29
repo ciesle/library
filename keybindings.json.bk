@@ -24,6 +24,11 @@
         "args": "run"
     },
     {
+        "key": "ctrl+f8",
+        "command": "workbench.action.tasks.runTask",
+        "args": "run_with_input_output"
+    },
+    {
         "key": "ctrl+shift+c",
         "command": "editor.action.blockComment"
     },

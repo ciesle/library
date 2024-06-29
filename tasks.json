@@ -138,6 +138,33 @@
             }
         },
         {
+            "label": "run_with_input_output",
+            "type": "shell",
+            "command": "./main",
+            "args": [
+                "<",
+                "${input:input_filename}",
+                ">",
+                "${input:input_filename_output}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": [
+                "build",
+            ],
+            "dependsOrder": "sequence",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false,
+                "group": "run",
+            }
+        },
+        {
             "label": "random_check",
             "type": "shell",
             "command": "./.vscode/randcheck.sh",
@@ -183,6 +210,12 @@
             "id": "input_filename",
             "description": "input file name",
             "default": "in.txt",
+            "type": "promptString"
+        },
+        {
+            "id": "input_filename_output",
+            "description": "input file name",
+            "default": "out.txt",
             "type": "promptString"
         },
         {
