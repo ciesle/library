@@ -21,3 +21,4 @@ done
 
 touch ../$1/main.cpp ../$1/gen.cpp ../$1/brute.cpp ../$1/in.txt
 g++ -O2 -o $(cd `dirname $0` && pwd)/snip $(cd `dirname $0` && pwd)/snippet.cpp
+$(cd ../$1 && make snippet)
