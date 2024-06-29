@@ -1,4 +1,4 @@
-void bin_sweep(vector<ll>& v) {
+void bin_sweep(vector<long long>& v) {
 	int n = v.size();
 	int cnt = 0;
 	for (int i = 63;i >= 0;i--) {

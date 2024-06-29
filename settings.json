@@ -35,5 +35,4 @@
         "editor.formatOnPaste": true,
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
-    "r.lsp.promptToInstall": false
 }

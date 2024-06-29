@@ -1,3 +1,4 @@
+//for grundy number
 int mex(vector<int>& v) {
 	sort(v.begin(), v.end());
 	int cur = 0;
@@ -7,4 +8,3 @@ int mex(vector<int>& v) {
 	}
 	return cur;
 }
-//for grundy number

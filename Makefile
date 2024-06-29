@@ -1,10 +1,10 @@
 CC = g++
-CFLAGS_OPT = -std=c++20 -O2
+CFLAGS_OPT = -std=c++20 -O2 -g
 CFLAGS_DBG = -std=c++20 -O0 -g
 OUT_DIR = ./.vscode/auto_build
 
 LIBRARIES:=$(shell find ./library/ -type f)
-SNIP_PATH=./.vscode/comp.json
+SNIP_PATH=./.vscode/cpp.json.code-snippets
 ADD_SH=../library/add.sh
 
 $(OUT_DIR)/main: main.cpp
