@@ -4,7 +4,7 @@ CFLAGS_DBG = -std=c++20 -O0 -g
 OUT_DIR = ./.vscode/auto_build
 
 LIBRARIES:=$(shell find ./library/ -type f)
-SNIP_PATH=./.vscode/cpp.json.code-snippets
+SNIP_PATH=./.vscode/comp.json.code-snippets
 ADD_SH=../library/add.sh
 
 $(OUT_DIR)/main: main.cpp

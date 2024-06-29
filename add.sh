@@ -1,4 +1,4 @@
-snip_path="./.vscode/comp.json"
+snip_path="./.vscode/comp.json.code-snippets"
 
 if [ ! -f $snip_path ]; then
 	echo "{\n\t\n}" > $snip_path
