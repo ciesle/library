@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS_OPT = -std=c++20 -O2 -g
+CFLAGS_OPT = -std=c++20 -O2
 CFLAGS_DBG = -std=c++20 -O0 -g
 OUT_DIR = ./.vscode/auto_build
 
