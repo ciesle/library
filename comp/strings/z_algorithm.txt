@@ -1,5 +1,4 @@
-template<typename T>
-vector<int>z_algorithm_ll(vector<T>& s) {
+vector<int>z_algorithm(string& s) {
 	int n = s.size();
 	int i = 1, j = 0;
 	vector<int>ret(n);

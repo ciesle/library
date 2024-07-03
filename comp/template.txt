@@ -10,9 +10,6 @@ using vl = vector<ll>;
 #define all(a) (a).begin(), (a).end()
 #define fs first
 #define sc second
-#define xx first
-#define yy second.first
-#define zz second.second
 #define rng(i, s, n) for(int i = (s) ; i < (n) ; i++)
 #define rep(i, n) rng(i, 0, (n))
 #define mkp make_pair
@@ -41,5 +38,5 @@ template<typename T>void fin(T x) { cout << x << endl; exit(0); }/*
 using namespace atcoder;//*/
 //--------------------------------------------------------------
 signed main() {
-
+	
 }
