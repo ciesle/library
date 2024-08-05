@@ -1,4 +1,4 @@
-vector<int>subtree_size(const vector<vector<int>>& e, int root = 0) {
+vector<int>tree_size(const vector<vector<int>>& e, int root = 0) {
 	vector<int>ret(e.size(), 0);
 	auto dfs = [&](int x, int p, int d, auto& dfs) ->int {
 		ret[x] = 1;

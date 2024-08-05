@@ -19,6 +19,11 @@ namespace SegmentTree {
 				}
 			}
 		}
+		LazySegmentTree(LazySegmentTree&& other) :n(other.n), rr(other.rr), height(other.height), dat(move(other.dat)) {}
+		LazySegmentTree& operator=(LazySegmentTree&& other) noexcept {
+			if (this != &other) n = other.n, rr = other.rr, height = other.height, dat = move(other.dat);
+			return *this;
+		}
 		virtual void update_one(Mono<T>& pos, T& x) = 0;
 		virtual T eval(T& l, T& r) = 0;
 		virtual void fold(Mono<T>& pos) = 0;
@@ -99,5 +104,5 @@ namespace SegmentTree {
 		}
 	};
 	//put function classes here.
-	
+
 };
