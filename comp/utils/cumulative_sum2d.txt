@@ -19,6 +19,7 @@ public:
 			}
 	}
 	T a(int x, int y, int x2, int y2) {
+		if (x > x2 || y > y2) return 0;
 		return arr[x2][y2] - (x > 0 ? arr[x - 1][y2] : 0) - (y > 0 ? arr[x2][y - 1] : 0) + ((x > 0 && y > 0) ? arr[x - 1][y - 1] : 0);
 	}
 	T b(int x, int y, int xlen, int ylen) {

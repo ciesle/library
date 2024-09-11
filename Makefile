@@ -1,6 +1,6 @@
 CC = g++
-CFLAGS_OPT = -std=c++20 -O2 -I../library/library
-CFLAGS_DBG = -std=c++20 -O0 -g -I../library/library
+CFLAGS_OPT = -std=c++20 -O2 -I../library/include
+CFLAGS_DBG = -std=c++20 -O0 -g -I../library/include
 OUT_DIR = ./.vscode/auto_build
 
 LIBRARIES:=$(shell find ./library/ -type f)
