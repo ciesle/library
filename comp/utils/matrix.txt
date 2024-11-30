@@ -62,4 +62,9 @@ struct matrix {
 	vector<T>& operator[](const int i) {
 		return dat[i];
 	}
+	void print() {
+		for (int i = 0;i < h;i++)
+			for (int j = 0;j < w;j++)
+				cout << dat[i][j] << " \n"[j == w - 1];
+	}
 };

@@ -69,7 +69,13 @@ public:
 		return fct[v] * comp[v - k.v];
 	}//nPk
 	mymodint fact() {
-		return perm(*this);
+		if (fct.empty()) combinit();
+		if (v >= fn_) {
+			mymodint tmp(1);
+			for (int i = v; i >= 1; i--) tmp *= mymodint(i);
+			return tmp;
+		}
+		return fct[v];
 	}
 	static void combinit() {
 		fct.assign(fn_, mymodint());
